@@ -5,19 +5,19 @@ build-backend = "hatchling.build"
 [project]
 name = "nfa-broker"
 description = "General broker library"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
-    "pydantic==2.7.3",
-    "pydantic-settings==2.3.0",
+    "pydantic~=2.10",
+    "pydantic-settings~=2.7",
 ]
 
 [project.optional-dependencies]
-kafka = ["faststream[kafka]==0.5.10"]
-rabbit = ["faststream[rabbit]==0.5.10"]
+kafka = ["faststream[kafka]~=0.5"]
+rabbitmq = ["faststream[rabbit]~=0.5"]
 
 [tool.hatch.version]
-path = "src/nfa/broker/version.py"
+path = "nfa/broker/version.py"
 
 [tool.hatch.version.git]
 tag-prefix = "v"
@@ -28,7 +28,7 @@ readme = "README.md"
 allow-direct-references = true
 
 [tool.hatch.sdist]
-include = ["/src"]
+include = ["/nfa"]
 
 [tool.hatch.build]
-include = ["/src"]
+include = ["/nfa"]
